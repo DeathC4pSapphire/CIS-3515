@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 
         String[] colors = {"Blue", "Red", "Green", "Yellow", "Purple"};
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, colors);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, colors); //adapters are like a view generator
 
         spinner.setAdapter(adapter);
         listView.setAdapter(adapter);
