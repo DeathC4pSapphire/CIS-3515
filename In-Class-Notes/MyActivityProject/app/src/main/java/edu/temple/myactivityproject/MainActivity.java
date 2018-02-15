@@ -30,7 +30,43 @@ public class MainActivity extends Activity {
                 startActivityForResult(launchIntent, requestCode);
             }
         });
+
+        Log.d("MainActivity", "OnCreate fired");
+
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("MainActivity", "onStart fired");
+// The activity is about to become visible.
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("MainActivity", "onResume fired");
+// The activity has become visible (it is now "resumed").
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("MainActivity", "onPause fired");
+// Another activity is taking focus (this activity is about to be "paused").
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("MainActivity", "onStop fired");
+// The activity is no longer visible (it is now "stopped")
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("MainActivity", "OnDestroy fired");
+// The activity is about to be destroyed.
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) { //callback info from activity 2
