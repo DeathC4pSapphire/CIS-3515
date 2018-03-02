@@ -15,10 +15,12 @@ public class ColorAdapter extends BaseAdapter {
 
     String[] colors;
     Context context;
+    String[] display;
 
-    public ColorAdapter(Context context, String[] colors){ //manually creating our own adapter
+    public ColorAdapter(Context context, String[] colors, String[] display){ //manually creating our own adapter
         this.colors = colors;
         this.context = context; //allows us to create views
+        this.display = display;
     }
 
     @Override
@@ -46,7 +48,7 @@ public class ColorAdapter extends BaseAdapter {
             textView = (TextView) view;
         }
 
-        textView.setText(colors[position]);
+        textView.setText(display[position]);
         textView.setBackgroundColor(Color.parseColor(colors[position]));
 
         return textView;

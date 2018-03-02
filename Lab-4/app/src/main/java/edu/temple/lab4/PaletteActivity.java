@@ -2,6 +2,7 @@ package edu.temple.lab4;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -22,18 +23,22 @@ public class PaletteActivity extends Activity {
 
         gridView = findViewById(R.id.gridView);
 
-        final String [] colors = {"WHITE",
-                                  "BLUE",
-                                  "GREEN",
-                                  "YELLOW",
-                                  "RED",
-                                  "BLACK",
-                                  "CYAN",
-                                  "GRAY",
-                                  "MAGENTA",
-                                  "DARKGRAY"};
+//        final String [] colors = {"WHITE",
+//                                  "BLUE",
+//                                  "GREEN",
+//                                  "YELLOW",
+//                                  "RED",
+//                                  "BLACK",
+//                                  "CYAN",
+//                                  "GRAY",
+//                                  "MAGENTA",
+//                                  "DARKGRAY"};
 
-        ColorAdapter adapter = new ColorAdapter(this, colors);
+        Resources res = getResources();
+        final String[] englishLabel = res.getStringArray(R.array.array1);
+        final String[] displayLabel = res.getStringArray(R.array.array2);
+
+        ColorAdapter adapter = new ColorAdapter(this, englishLabel, displayLabel);
 
         gridView.setAdapter(adapter);
 
@@ -44,7 +49,7 @@ public class PaletteActivity extends Activity {
 
                 Intent launchIntent =
                         new Intent(PaletteActivity.this, CanvasActivity.class);
-                launchIntent.putExtra("message", (String) colors[i]);
+                launchIntent.putExtra("message", (String) englishLabel[i]);
 
                 startActivity(launchIntent);
             }
